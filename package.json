@@ -1,7 +1,7 @@
 {
   "name": "shipit-fusionary",
   "version": "1.0.0",
-  "description": "A collection of Shipit tasks",
+  "description": "A collection of Shipit tasks used at Fusionary",
   "main": "index.js",
   "scripts": {
     "test": ""
