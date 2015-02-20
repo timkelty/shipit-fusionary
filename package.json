@@ -22,5 +22,9 @@
     "shipit-shared": "^1.5.5",
     "shipit-ssh": "^1.3.3",
     "shipit-utils": "^1.0.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-shipit": "^1.0.0"
   }
 }
