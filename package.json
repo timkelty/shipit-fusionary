@@ -3,15 +3,17 @@
   "version": "1.0.1",
   "description": "A collection of Shipit tasks used at Fusionary",
   "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
   "keywords": [
     "shipit",
     "deploy"
   ],
   "author": "tim@fusionary.com",
   "license": "MIT",
+  "readmeFile": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timkelty/shipit-fusionary.git"
+  },
   "dependencies": {
     "shipit-assets": "^1.3.0",
     "shipit-cli": "^1.1.0",
@@ -19,6 +21,6 @@
     "shipit-deploy": "^1.1.1",
     "shipit-shared": "^1.5.2",
     "shipit-ssh": "^1.2.0",
-    "shipit-utils": "^1.0.0"
+    "shipit-utils": "^1.0.1"
   }
 }
