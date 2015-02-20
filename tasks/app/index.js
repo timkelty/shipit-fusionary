@@ -11,8 +11,8 @@ module.exports = function (gruntOrShipit) {
   ]);
 
   utils.registerTask(gruntOrShipit, 'app:push', [
-    'assets:pull',
-    'db:pull',
+    'assets:push',
+    'db:push',
   ]);
 
 };
