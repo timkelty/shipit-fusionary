@@ -21,6 +21,6 @@
     "shipit-deploy": "^1.1.1",
     "shipit-shared": "^1.5.2",
     "shipit-ssh": "^1.2.0",
-    "shipit-utils": "^1.0.1"
+    "shipit-utils": "^1.0.2"
   }
 }
