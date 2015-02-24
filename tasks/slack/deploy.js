@@ -8,27 +8,27 @@ var chalk = require('chalk');
  */
 
 module.exports = function (gruntOrShipit) {
-  function task() {
+  var task = function task(argument) {
     var shipit = utils.getShipit(gruntOrShipit);
     var slack = Promise.promisifyAll(require('slack-notify')(shipit.config.slack.webhookUrl));
+    var gitConfig = Promise.promisify(require('git-config'));
 
-    // return shipit.local('git log --pretty=format:\"%h: %s -- %an\" #{from}..').then(function(response) {
-    //   console.log(response);
-    // });
-    return slack.sendAsync({
-      user: 'Squirrel',
-      icon_emoji: ':shipit:',
-      fields: {
-        "Application": shipit.config.name,
-        "Environment": shipit.environment,
-        "Branch": shipit.config.branch,
-        "Deployed by": '...',
-      }
-    }).then(function() {
-      shipit.log(chalk.green('Slack notification sent.'));
+    return gitConfig().then(function(gitConfig) {
+      return slack.sendAsync({
+        username: 'Shipit Squirrel',
+        text: shipit.config.name,
+        icon_emoji: ':shipit:',
+        fields: {
+          "Environment": shipit.environment,
+          "Server": shipit.config.servers,
+          "Branch": shipit.config.branch,
+          "Deployed by": gitConfig.user.name,
+        }
+      }).then(function() {
+        shipit.log(chalk.green('Slack notification sent.'));
+      });
     });
-
-  }
+  };
 
   utils.registerTask(gruntOrShipit, 'slack:deploy', task);
 };
