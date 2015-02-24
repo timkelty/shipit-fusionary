@@ -15,7 +15,7 @@
     "url": "https://github.com/timkelty/shipit-fusionary.git"
   },
   "bin": {
-    "shipit": "./node_modules/shipit-cli/shipit"
+    "shipit": "./node_modules/shipit-cli/bin/shipit"
   },
   "dependencies": {
     "bluebird": "^2.9.12",
