@@ -1,6 +1,8 @@
 var utils = require('shipit-utils');
 
 module.exports = function (gruntOrShipit) {
+  var shipit = utils.getShipit(gruntOrShipit);
+
   utils.registerTask(gruntOrShipit, 'app:pull', [
     'assets:pull',
     'db:pull',
@@ -10,5 +12,9 @@ module.exports = function (gruntOrShipit) {
     'assets:push',
     'db:push',
   ]);
+
+  shipit.on('published', function () {
+    utils.runTask(gruntOrShipit, 'slack:deploy');
+  });
 
 };
