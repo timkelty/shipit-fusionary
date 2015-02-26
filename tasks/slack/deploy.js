@@ -10,6 +10,12 @@ var chalk = require('chalk');
 module.exports = function (gruntOrShipit) {
   var task = function task(argument) {
     var shipit = utils.getShipit(gruntOrShipit);
+
+    if (!shipit.config.slack || !shipit.config.slack.webhookUrl) {
+      shipit.log(chalk.red('Slack notification not sent: shipit.config.slack.webhookUrl not found.'));
+      return;
+    }
+
     var slack = Promise.promisifyAll(require('slack-notify')(shipit.config.slack.webhookUrl));
     var gitConfig = Promise.promisify(require('git-config'));
 
