@@ -13,7 +13,7 @@ module.exports = function (gruntOrShipit) {
     'db:push',
   ]);
 
-  shipit.on('published', function () {
+  shipit.on('updated', function () {
     utils.runTask(gruntOrShipit, 'slack:deploy');
   });
 
