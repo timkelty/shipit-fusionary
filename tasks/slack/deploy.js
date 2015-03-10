@@ -4,11 +4,6 @@ var chalk = require('chalk');
 var _ = require('lodash');
 var deployInit = require('shipit-deploy/lib/init');
 
-/**
- * Create required directories for linked files and dirs.
- * - shared:create-dirs
- */
-
 module.exports = function (gruntOrShipit) {
   var task = function task(argument) {
     var shipit = deployInit(utils.getShipit(gruntOrShipit));
