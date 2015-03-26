@@ -9,7 +9,7 @@ module.exports = function (gruntOrShipit) {
     var shipit = deployInit(utils.getShipit(gruntOrShipit));
 
     if (!shipit.config.slack || !shipit.config.slack.webhookUrl) {
-      shipit.log(chalk.yellow('Slack notification not sent: shipit.config.slack.webhookUrl not found.'));
+      shipit.log(chalk.dim('Slack notification not sent: shipit.config.slack.webhookUrl not found.'));
       return;
     }
 
