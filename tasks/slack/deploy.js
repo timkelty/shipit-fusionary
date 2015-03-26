@@ -21,14 +21,14 @@ module.exports = function (gruntOrShipit) {
         var message = _.merge({
           username: 'Shipit Squirrel',
           icon_emoji: ':shipit:',
-          fields: {
-            "Application": shipit.config.name,
+          fields: _.pick({
+            "Application": shipit.config.name || null,
             "Environment": shipit.environment,
             "Server": shipit.config.servers,
             "Branch": shipit.config.branch,
-            "Deployed by": gitConfig.user.name,
+            "Deployed by": gitConfig.user.name || null,
             "Commits": commits ? commits : 'None'
-          }
+          }, _.identity)
         }, shipit.config.slack.message || {});
 
         return slack.sendAsync(message).then(function() {
