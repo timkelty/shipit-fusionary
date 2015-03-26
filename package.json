@@ -21,7 +21,7 @@
     "lodash": "^3.5.0",
     "shipit-assets": "^1.3.5",
     "shipit-db": "^1.6.2",
-    "shipit-deploy": "^1.2.0",
+    "shipit-deploy": "git://github.com/shipitjs/shipit-deploy#dfbbdd490198dc4ed43cd44a25567e24d3fdadb2",
     "shipit-npm": "0.0.5",
     "shipit-shared": "^2.1.0",
     "shipit-ssh": "^1.3.3",
