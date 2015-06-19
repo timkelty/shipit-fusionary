@@ -26,7 +26,7 @@ module.exports = function (gruntOrShipit) {
             "Environment": shipit.environment,
             "Server": shipit.config.servers,
             "Branch": shipit.config.branch,
-            "Deployed by": gitConfig.user.name || null,
+            "Deployed by": gitConfig.user.name || gitConfig.user.email || null,
             "Commits": commits ? commits : 'None'
           }, _.identity)
         }, shipit.config.slack.message || {});
