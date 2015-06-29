@@ -18,13 +18,14 @@ module.exports = function (gruntOrShipit) {
 
     return gitConfig().then(function(gitConfig) {
       return shipit.getPendingCommits().then(function(commits) {
+        var servers = Array.isArray(shipit.config.servers) ? shipit.config.servers.join(', ') : shipit.config.servers;
         var message = _.merge({
           username: 'Shipit Squirrel',
           icon_emoji: ':shipit:',
           fields: _.pick({
             "Application": shipit.config.name || null,
             "Environment": shipit.environment,
-            "Server": shipit.config.servers,
+            "Server": servers,
             "Branch": shipit.config.branch,
             "Deployed by": gitConfig.user.name || gitConfig.user.email || null,
             "Commits": commits ? commits : 'None'
