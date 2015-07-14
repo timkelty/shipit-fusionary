@@ -14,7 +14,7 @@ module.exports = function (gruntOrShipit) {
   ]);
 
   // Needs to be on updated, so we can still compare revisions
-  shipit.on('updated', function () {
+  shipit.on('updated', function() {
     utils.runTask(gruntOrShipit, 'slack:deploy');
   });
 
